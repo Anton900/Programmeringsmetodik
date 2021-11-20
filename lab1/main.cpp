@@ -63,7 +63,7 @@ void f(int_buffer buffer)
     // std::cout << "\n";
 }
 
-void generateRandomValues(int_buffer &buffer)
+void generate_random_values(int_buffer &buffer)
 {
     for (int *i = buffer.begin(); i != buffer.end(); i++)
     {
@@ -98,7 +98,7 @@ void print_buffer(int_sorted &sorted)
     std::cout << "\n";
 }
 
-double calculateAverage(double total, int samples)
+double calculate_average(double total, int samples)
 {
     double average = total / samples;
     return average;
@@ -118,7 +118,7 @@ void calculate_sorts()
 
     for (int i = 0; i < samples; i++)
     {
-        generateRandomValues(buffer);
+        generate_random_values(buffer);
         auto start = high_resolution_clock::now();
         selection_sort(buffer.begin(), buffer.end());
         auto stop = high_resolution_clock::now();
@@ -128,7 +128,7 @@ void calculate_sorts()
         totalTime += time;
     }
     std::cout << "Total time: " << totalTime << "\n";
-    double average = calculateAverage(totalTime, samples);
+    double average = calculate_average(totalTime, samples);
     std::cout << "Time Selection Sort (average): " << average << " seconds\n";
     totalTime = 0;
 
@@ -137,7 +137,7 @@ void calculate_sorts()
 
     for (int i = 0; i < samples; i++)
     {
-        generateRandomValues(buffer);
+        generate_random_values(buffer);
         auto start = high_resolution_clock::now();
         std::sort(buffer.begin(), buffer.end());
         auto stop = high_resolution_clock::now();
@@ -147,7 +147,7 @@ void calculate_sorts()
         totalTime += time;
     }
     std::cout << "Total time: " << totalTime << "\n";
-    average = calculateAverage(totalTime, samples);
+    average = calculate_average(totalTime, samples);
     std::cout << "std::sort (average): " << average << " seconds\n";
     totalTime = 0;
 
@@ -156,7 +156,7 @@ void calculate_sorts()
 
     for (int i = 0; i < samples; i++)
     {
-        generateRandomValues(buffer);
+        generate_random_values(buffer);
         auto start = high_resolution_clock::now();
         int_sorted merge = sort(buffer.begin(), buffer.end());
         auto stop = high_resolution_clock::now();
@@ -166,7 +166,7 @@ void calculate_sorts()
         totalTime += time;
     }
     std::cout << "Total time: " << totalTime << "\n";
-    average = calculateAverage(totalTime, samples);
+    average = calculate_average(totalTime, samples);
     std::cout << "Merge Sort (average): " << average << " seconds\n";
 }
 
@@ -183,7 +183,7 @@ int main()
     int randArray[size];
     for (int i = 0; i < size; i++)
     {
-        randArray[i] = rand() % 1000;
+        randArray[i] = rand() % 100;
     }
 
     int randArray2[size];
