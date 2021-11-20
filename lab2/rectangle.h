@@ -7,6 +7,11 @@ class rectangle : public shape
 {
 public:
     rectangle();
+    double get_area() override;
+
+private:
+    double height;
+    double width;
 };
 
 #endif

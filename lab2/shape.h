@@ -6,13 +6,14 @@
 class shape
 {
 public:
-    shape();
+    shape(std::string color, double area);
 
-    std::string get_color() const;
-    std::string get_area() const;
+    virtual std::string get_color();
+    virtual double get_area();
 
-private:
+protected:
     std::string color;
+    double area;
 };
 
 #endif
