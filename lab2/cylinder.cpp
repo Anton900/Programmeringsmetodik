@@ -4,5 +4,5 @@ cylinder::cylinder(std::string color, double radius, double height) : circle(col
 
 double cylinder::get_area()
 {
-    return (2 * 3 * get_radius() * get_radius()) + height * (2 * 3 * get_radius());
+    return (2 * PI * get_radius() * get_radius()) + height * (2 * PI * get_radius());
 }

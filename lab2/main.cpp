@@ -6,11 +6,19 @@
 #include "parallelepiped.h"
 #include "rounded_rectangle.h"
 
-void get_data(shape **shapes)
+void get_data(shape **shapes, int size)
 {
-    int size = 5;
+
+    std::cout << "arr_size: " << size << "\n";
+    int counter = shapes[0]->get_counter();
+    std::cout << "counter: " << counter << "\n";
     double totalArea = 0;
-    // std::cout << "Shapes Memory Address (Function): " << &shapes << "\n";
+
+    if (size > counter)
+    {
+        std::cout << "Error! Array larger then elements created.\n";
+        return;
+    }
 
     for (int i = 0; i < size; i++)
     {
@@ -20,6 +28,7 @@ void get_data(shape **shapes)
     }
     std::cout << "Total Area: " << totalArea << "\n";
 }
+
 int main()
 {
 
@@ -30,8 +39,7 @@ int main()
     shape *parallelepiped_ = new parallelepiped("purple", 10, 10, 20);
 
     shape *shapes[5] = {rectangle_, circle_, cylinder_, rounded_rectangle_, parallelepiped_};
+    int arr_size = sizeof(shapes) / sizeof(*shapes);
 
-    // std::cout << "Shapes Memory Address (Main): " << &shapes << "\n";
-
-    get_data(shapes);
+    get_data(shapes, arr_size);
 }
