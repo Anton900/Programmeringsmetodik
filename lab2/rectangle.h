@@ -6,10 +6,16 @@
 class rectangle : public shape
 {
 public:
-    rectangle();
+    rectangle(std::string color, double height, double width);
     double get_area() override;
 
-private:
+    void setWidth(double width);
+    double getWidth();
+
+    void setHeight(double heigth);
+    double getHeight();
+
+protected:
     double height;
     double width;
 };
