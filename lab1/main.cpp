@@ -53,8 +53,9 @@ void f(int_buffer buffer)
     }
     for (const int *i = buffer.begin(); i != buffer.end(); i++)
     {
-        std::cout << *i << "\n";
+        std::cout << *i << " ";
     }
+    std::cout << "\n";
 
     // Also possible to use the for-range syntax
     // for(auto e: buffer) {
@@ -202,10 +203,10 @@ int main()
 
     std::cout << "\nBefore Insertion: ";
     print_buffer(buffer1);
+    std::cout << "After insertion: ";
     buffer1.insert(10);
     buffer1.insert(70);
     buffer1.insert(5);
-    std::cout << "After insertion: ";
     print_buffer(buffer1);
     std::cout << "\n";
 
