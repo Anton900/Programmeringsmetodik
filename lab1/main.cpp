@@ -133,7 +133,7 @@ void calculate_sorts()
     std::cout << "Time Selection Sort (average): " << average << " seconds\n";
     totalTime = 0;
 
-    std::cout << "\n-------------------- STD::SORT --------------------\n";
+    std::cout << "\n-------------------- STANDARD SORT --------------------\n";
     std::cout << "\nElements: " << size << " Samples: " << samples << "\n";
 
     for (int i = 0; i < samples; i++)
@@ -149,7 +149,7 @@ void calculate_sorts()
     }
     std::cout << "Total time: " << totalTime << "\n";
     average = calculate_average(totalTime, samples);
-    std::cout << "std::sort (average): " << average << " seconds\n";
+    std::cout << "Standard Sort (average): " << average << " seconds\n";
     totalTime = 0;
 
     std::cout << "\n-------------------- MERGE SORT --------------------\n";
