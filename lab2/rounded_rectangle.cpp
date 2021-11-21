@@ -7,3 +7,8 @@ double rounded_rectangle::get_area()
 {
     return (getHeight() * getWidth()) - (corner_radius * corner_radius) * (4 - PI);
 }
+
+std::string rounded_rectangle::get_shape_type()
+{
+    return "rounded rectangle";
+}

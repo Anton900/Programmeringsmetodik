@@ -8,6 +8,7 @@ class rounded_rectangle : public rectangle
 public:
     rounded_rectangle(std::string color, double height, double width, double corner_radius);
     double get_area() override;
+    std::string get_shape_type() override;
 
 protected:
     double corner_radius;

@@ -1,5 +1,4 @@
 #include "shape.h"
-#include <iostream>
 
 int shape::counter = 0;
 

@@ -6,3 +6,8 @@ double cylinder::get_area()
 {
     return (2 * PI * get_radius() * get_radius()) + height * (2 * PI * get_radius());
 }
+
+std::string cylinder::get_shape_type()
+{
+    return "cylinder";
+}

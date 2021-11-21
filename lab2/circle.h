@@ -10,6 +10,7 @@ public:
     circle(std::string color, double radius);
     double get_area() override;
     double get_radius();
+    std::string get_shape_type() override;
 
 protected:
     double radius;

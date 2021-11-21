@@ -1,11 +1,15 @@
 #include "rectangle.h"
-#include <iostream>
 
 rectangle::rectangle(std::string color, double height, double width) : shape(color), height(height), width(width) {}
 
 double rectangle::get_area()
 {
     return height * width;
+}
+
+std::string rectangle::get_shape_type()
+{
+    return "rectangle";
 }
 
 void rectangle::setWidth(double width)

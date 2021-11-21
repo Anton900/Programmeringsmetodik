@@ -22,7 +22,7 @@ void get_data(shape **shapes, int size)
 
     for (int i = 0; i < size; i++)
     {
-        std::cout << "Shape " << i << " is color: " << shapes[i]->get_color() << "\n";
+        std::cout << shapes[i]->get_shape_type() << " is color " << shapes[i]->get_color() << "\n";
         double area = shapes[i]->get_area();
         totalArea += area;
     }

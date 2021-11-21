@@ -10,6 +10,7 @@ public:
     shape(std::string color);
     virtual std::string get_color();
     virtual double get_area() = 0;
+    virtual std::string get_shape_type() = 0;
     int get_counter();
 
 protected:

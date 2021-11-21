@@ -15,6 +15,8 @@ public:
     void setHeight(double heigth);
     double getHeight();
 
+    std::string get_shape_type() override;
+
 protected:
     double height;
     double width;
