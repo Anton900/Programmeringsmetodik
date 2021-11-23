@@ -1,2 +1,2 @@
 # Lab 2
-Purpose of the lab is to create a class hierarchy with shapes using inheritance. The class Shape is the abstract base class that all the other classes inherit from. Every subclass derive the data member color and the pure virtual function get_area() from the base class.
+Purpose of the lab is to create a class hierarchy with shapes using inheritance. The class Shape is the abstract base class that all the other classes inherit from. Every subclass derive the data member color and the pure virtual function get_area() from the base class. All the shapes are put into a shape array and the area from all the different shapes are calculated and combined to find the total area.
