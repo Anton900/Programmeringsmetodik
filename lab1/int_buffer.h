@@ -1,3 +1,7 @@
+// RAII, Merge och Merge-sort, Programmeringsmetodik
+// Anton Wallin
+// int_buffer.h, redigerad senast: 2021-11-24
+
 #ifndef INT_BUFFER_H
 #define INT_BUFFER_H
 #include <iostream>
@@ -6,7 +10,7 @@ class int_buffer
 {
 public:
     int_buffer() = default;
-    explicit int_buffer(size_t size); // size_t is defined in cstdlib
+    explicit int_buffer(size_t size);
     int_buffer(const int *source, size_t size);
     int_buffer(const int_buffer &rhs); // copy construct
     int_buffer(int_buffer &&rhs);      // move construct
@@ -22,8 +26,6 @@ public:
     int *end();
     const int *begin() const;
     const int *end() const;
-
-    void clear();
 
 private:
     void swap(int_buffer &rhs);

@@ -1,3 +1,11 @@
+// RAII, Merge och Merge-sort, Programmeringsmetodik
+// Anton Wallin
+// main.cpp, redigerad senast: 2021-11-24
+// Utför de 3 punkterna i instruktionerna i labb anvisningen.
+// 1. Skapar en buffer med size 10 med värden från 1 till 10
+// 2. Skapar två int_buffer med slumpvalda tal och utför insert och merge funktioner.
+// 3. genomför tids jämförelse mellan selection sort, standard sort och merge sort
+
 #include <iostream>
 #include <time.h>
 #include <chrono>
@@ -159,7 +167,7 @@ void calculate_sorts()
     {
         generate_random_values(buffer);
         auto start = high_resolution_clock::now();
-        int_sorted merge = sort(buffer.begin(), buffer.end());
+        int_sorted merge(buffer.begin(), buffer.size());
         auto stop = high_resolution_clock::now();
         auto duration = std::chrono::duration<double>(stop - start);
         double time = duration.count();
@@ -175,18 +183,18 @@ int main()
 {
 
     srand(time(0));
-
-    // 1
-    f(int_buffer(10));
-
-    // 2
-    int_buffer buffer(5);
+//
+//    // 1
+      f(int_buffer(10));
+//
+//    // 2
+      int_buffer buffer(5);
 
     generate_random_values(buffer);
     int_sorted sort_buffer1(buffer.begin(), buffer.size());
 
     generate_random_values(buffer);
-    int_sorted sort_buffer2(buffer.end(), buffer.size());
+    int_sorted sort_buffer2(buffer.begin(), buffer.size());
 
     std::cout << "\nsort_buffer1: ";
     print_buffer(sort_buffer1);
@@ -196,9 +204,13 @@ int main()
     std::cout << "\nBefore Insertion: ";
     print_buffer(sort_buffer1);
     std::cout << "After insertion: ";
-    sort_buffer1.insert(10);
-    sort_buffer1.insert(70);
-    sort_buffer1.insert(5);
+    for(int i = 0; i < 5; i++){
+        int random_value = rand() % 100;
+        sort_buffer1.insert(random_value);
+    }
+//    sort_buffer1.insert(10);
+//    sort_buffer1.insert(70);
+//    sort_buffer1.insert(5);
     print_buffer(sort_buffer1);
     std::cout << "\n";
 

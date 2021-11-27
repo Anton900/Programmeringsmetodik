@@ -1,6 +1,11 @@
+// RAII, Merge och Merge-sort, Programmeringsmetodik
+// Anton Wallin
+// int_sorted.cpp, redigerad senast: 2021-11-24
+// Ser till att buffern alltid är sorterad med merge sort
+
 #include "int_sorted.h"
 
-int_sorted::int_sorted(const int *source, size_t size) : buffer(size)
+int_sorted::int_sorted(const int *source, size_t size) : buffer(0)
 {
     if (size > 1)
         buffer = sort(source, (source + size)).buffer;
@@ -42,44 +47,44 @@ int_sorted int_sorted::sort(const int *begin, const int *end)
     ptrdiff_t half = (end - begin) / 2; // pointer diff type
     const int *mid = begin + half;
     return sort(begin, mid).merge(sort(mid, end));
+
 }
 
 int_sorted int_sorted::merge(const int_sorted &merge_with) const
 {
-    // std::cout << "in merge\n";
     int_buffer merge_buffer = merge_with.buffer;
     int_buffer result_buffer(size() + merge_with.size());
 
-    const int *old_buffer_ptr = begin();
-    const int *merge_ptr = merge_buffer.begin();
+    const int *first_buffer_ptr = begin();
+    const int *second_buffer_ptr = merge_buffer.begin();
     int *result_ptr = result_buffer.begin();
 
-    while (old_buffer_ptr != end() && merge_ptr != merge_buffer.end())
+    while (first_buffer_ptr != end() && second_buffer_ptr != merge_buffer.end())
     {
-        if (*old_buffer_ptr < *merge_ptr)
+        if (*first_buffer_ptr < *second_buffer_ptr)
         {
-            *result_ptr = *old_buffer_ptr;
+            *result_ptr = *first_buffer_ptr;
             result_ptr++;
-            old_buffer_ptr++;
+            first_buffer_ptr++;
         }
         else
         {
-            *result_ptr = *merge_ptr;
+            *result_ptr = *second_buffer_ptr;
             result_ptr++;
-            merge_ptr++;
+            second_buffer_ptr++;
         }
     }
-    while (old_buffer_ptr != end())
+    while (first_buffer_ptr != end())
     {
-        *result_ptr = *old_buffer_ptr;
+        *result_ptr = *first_buffer_ptr;
         result_ptr++;
-        old_buffer_ptr++;
+        first_buffer_ptr++;
     }
-    while (merge_ptr != merge_buffer.end())
+    while (second_buffer_ptr != merge_buffer.end())
     {
-        *result_ptr = *merge_ptr;
+        *result_ptr = *second_buffer_ptr;
         result_ptr++;
-        merge_ptr++;
+        second_buffer_ptr++;
     }
 
     int_sorted result(nullptr, 0);

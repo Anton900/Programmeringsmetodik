@@ -1,3 +1,7 @@
+// RAII, Merge och Merge-sort, Programmeringsmetodik
+// Anton Wallin
+// int_sorted.h, redigerad senast: 2021-11-24
+
 #ifndef INT_SORTED_H
 #define INT_SORTED_H
 #include <iostream>
