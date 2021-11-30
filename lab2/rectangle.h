@@ -9,13 +9,11 @@ public:
     rectangle(std::string color, double height, double width);
     double get_area() override;
 
-    void setWidth(double width);
-    double getWidth();
+    void set_width(double width);
+    double get_width();
 
-    void setHeight(double heigth);
-    double getHeight();
-
-    std::string get_shape_type() override;
+    void set_height(double heigth);
+    double get_height();
 
 protected:
     double height;

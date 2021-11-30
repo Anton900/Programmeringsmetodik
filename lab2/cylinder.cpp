@@ -4,10 +4,5 @@ cylinder::cylinder(std::string color, double radius, double height) : circle(col
 
 double cylinder::get_area()
 {
-    return (2 * PI * get_radius() * get_radius()) + height * (2 * PI * get_radius());
-}
-
-std::string cylinder::get_shape_type()
-{
-    return "cylinder";
+    return (2 * circle::get_area() + height * (2 * M_PI * get_radius()));
 }

@@ -4,11 +4,5 @@ parallelepiped::parallelepiped(std::string color, double height, double width, d
 
 double parallelepiped::get_area()
 {
-    return (2 * length * getWidth()) * (2 * length * getHeight()) * (2 * getWidth() * getHeight()); // surface area
-    // return (2 * length * getHeight()) * (2 * getWidth() * getHeight()); // lateral surface area
-}
-
-std::string parallelepiped::get_shape_type()
-{
-    return "parallelepiped";
+    return (2 * length * get_width()) + (2 * length * get_height()) + (2 * rectangle::get_area()); // surface area
 }

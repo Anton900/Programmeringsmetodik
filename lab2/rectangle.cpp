@@ -7,27 +7,22 @@ double rectangle::get_area()
     return height * width;
 }
 
-std::string rectangle::get_shape_type()
-{
-    return "rectangle";
-}
-
-void rectangle::setWidth(double width)
+void rectangle::set_width(double width)
 {
     this->width = width;
 };
 
-double rectangle::getWidth()
+double rectangle::get_width()
 {
     return width;
 };
 
-void rectangle::setHeight(double heigth)
+void rectangle::set_height(double heigth)
 {
     this->height = height;
 };
 
-double rectangle::getHeight()
+double rectangle::get_height()
 {
     return height;
 };
