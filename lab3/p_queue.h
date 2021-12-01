@@ -5,8 +5,7 @@
 #include <vector>
 #include <algorithm>
 #include <functional>
-
-template <typename T, typename Compare = std::less<>>
+template <typename T, typename Compare = std::less<T>>
 class p_queue
 {
 private:
@@ -15,6 +14,11 @@ private:
 
 public:
     p_queue() { buffer.reserve(10); }
+    p_queue(std::initializer_list<T> source) : buffer(source.size())
+    {
+        std::copy(source.begin(), source.end(), buffer.begin());
+        std::sort(buffer.begin(), buffer.end(), comp);
+    }
     T pop()
     {
         auto ele = buffer.front();
@@ -27,6 +31,7 @@ public:
         {
             buffer.reserve(resize());
         }
+
         buffer.push_back(e);
         std::sort(buffer.begin(), buffer.end(), comp);
     }
@@ -43,12 +48,12 @@ public:
         return 1.6 * buffer.capacity();
     }
 
-    auto begin()
+    auto begin() const
     {
         return buffer.begin();
     }
 
-    auto end()
+    auto end() const
     {
         return buffer.end();
     }

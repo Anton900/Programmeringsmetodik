@@ -6,10 +6,17 @@
 
 struct order
 {
-    order(std::string name, double price) : name(name), price(price) {}
+    order(std::string name = "", double price = 0) : name(name), price(price) {}
     std::string name;
     double price;
+
+    // friend bool operator<(const order &s1, const order &s2);
 };
+
+// bool operator<(const order &s1, const order &s2)
+// {
+//     return s1.price < s2.price;
+// }
 
 std::ostream &operator<<(std::ostream &out, order o)
 {

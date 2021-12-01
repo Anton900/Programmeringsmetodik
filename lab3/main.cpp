@@ -2,10 +2,14 @@
 #include "order.h"
 #include <random>
 #include <time.h>
+// #include "p_queue2.h"
 
 int main()
 {
+
     srand(time(0));
+
+    // p_queue2<order, less_price> sell(21, less_price());
 
     p_queue<order, less_price> sell_queue;
     p_queue<order, less_price> buy_queue;
