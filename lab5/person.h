@@ -42,7 +42,6 @@ public:
     friend class PersonAgeCompare;
     friend class MyBinOp;
     friend class MyUnOp;
-
     friend Person operator+(Person &p1, Person &p2);
 };
 
@@ -98,12 +97,5 @@ public:
         return p.getAge();
     }
 };
-
-Person operator+(Person &p1, Person &p2)
-{
-    Person bla;
-    bla.age = p1.age + p2.age;
-    return bla;
-}
 
 #endif
