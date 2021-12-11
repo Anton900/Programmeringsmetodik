@@ -2,14 +2,11 @@
 #include "order.h"
 #include <random>
 #include <time.h>
-// #include "p_queue2.h"
 
 int main()
 {
 
     srand(time(0));
-
-    // p_queue2<order, less_price> sell(21, less_price());
 
     p_queue<order, less_price> sell_queue;
     p_queue<order, less_price> buy_queue;
@@ -27,17 +24,15 @@ int main()
         buy_queue.push(order("Joakim von Anka", rand() % (max - min + 1) + min));
     }
 
-    std::cout << "----- SELL QUEUE -----\n";
-    for (auto e : sell_queue)
-    {
-        std::cout << e;
-    }
-    std::cout << "\n";
+    auto sell = sell_queue.pop();
 
-    std::cout << "----- BUY QUEUE -----\n";
-    for (auto e : buy_queue)
+    while (!sell_queue.empty() && !buy_queue.empty())
     {
-        std::cout << e;
+        auto buy = buy_queue.pop();
+        if (buy.price > sell.price && buy.name != sell.name)
+        {
+            std::cout << buy.name << " just purchased for the price of " << buy.price << " from " << sell.name << "\n";
+            sell = sell_queue.pop();
+        }
     }
-    std::cout << "\n";
 }

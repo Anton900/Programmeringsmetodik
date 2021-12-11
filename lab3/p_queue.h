@@ -27,11 +27,6 @@ public:
     }
     void push(T e)
     {
-        if (buffer.size() == buffer.capacity())
-        {
-            buffer.reserve(resize());
-        }
-
         buffer.push_back(e);
         std::sort(buffer.begin(), buffer.end(), comp);
     }
@@ -42,10 +37,6 @@ public:
     bool empty()
     {
         return buffer.empty();
-    }
-    size_t resize()
-    {
-        return 1.6 * buffer.capacity();
     }
 
     auto begin() const
